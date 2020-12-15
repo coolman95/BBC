@@ -20,6 +20,41 @@ docker cp ./md.conf nginx:/etc/nginx/conf.d/md.conf
 
 ```
 
+> docker GD ZIP 扩展
+```
+
+#容器中
+#echo "deb http://mirrors.163.com/debian/ stretch main contrib non-free\ndeb http://mirrors.163.com/debian/ stretch-updates main contrib non-free\ndeb http://mirrors.163.com/debian/ stretch-backports main contrib non-free" > /etc/apt/sources.list  #软件源修改为网易镜像站源
+
+apt update  #更新软件源
+apt install -y libwebp-dev libjpeg-dev libpng-dev libfreetype6-dev #安装各种库
+docker-php-source extract #解压源码
+cd /usr/src/php/ext/gd  #gd源码文件夹
+docker-php-ext-configure gd --with-webp-dir=/usr/include/webp --with-jpeg-dir=/usr/include --with-png-dir=/usr/include --with-freetype-dir=/usr/include/freetype2   #准备编译
+docker-php-ext-install gd   #编译安装
+php -m | grep gd
+
+#重启容器
+
+```
+
+```
+获取扩展文件
+wget http://pecl.php.net/get/zip-1.13.5.tgz
+
+复制到容器当中
+docker cp ./zip-1.13.5.tgz php7:/usr/src/php/ext/
+加压文件
+tar -zvxf zip-1.13.5.tgz
+重命名
+mv zip-1.13.5 zip
+进入zip 文件
+cd /usr/src/php/ext/zip
+运行安装文件
+docker-php-ext-install zip
+
+```
+
 > docker nginx.conf default.conf
 ```
 server {
