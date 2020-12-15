@@ -14,6 +14,10 @@ docker run -d --name nginx --privileged=true -p 80:80 -v /var/www/:/usr/share/ng
 
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 
+---
+
+docker cp ./md.conf nginx:/etc/nginx/conf.d/md.conf
+
 ```
 
 > docker nginx.conf default.conf
@@ -76,7 +80,3 @@ server {
 }
 ```
 
-> docker cp
-` shell
-docker cp ./md.conf nginx:/etc/nginx/conf.d/md.conf
-`
