@@ -75,3 +75,8 @@ server {
     # }
 }
 ```
+
+> docker cp
+` shell
+docker cp ./md.conf nginx:/etc/nginx/conf.d/md.conf
+`
