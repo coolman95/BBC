@@ -3,7 +3,7 @@
 ## 添加表单页面
 
 > 页面实现axios请求,分页加载，弹窗提示，弹窗列表，选择数据，排版，页面初始化等...
-'''
+```
 <template>
     <div class="o1">
         <div v-show="loading1" style="position: fixed;left: 47%;top: 38%;">
@@ -476,11 +476,11 @@ export default {
 </style>
 
 
-'''
+```
 
 > 底层 pdo 连接实现事务操作（原方法不支持事务）
 
-'''
+```
     public function beginTransaction(){
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->beginTransaction();
@@ -494,14 +494,14 @@ export default {
         $this->pdo->commit();
     }
     
-'''
+```
 
 ### server层数据库操作，数据库字段维护
 
 > 1. 需要三个数据列表
 
-'''php
-  public function getSupplierList($custcode, $page=1, $size=10){
+```PHP
+    public function getSupplierList($custcode, $page=1, $size=10){
         if(empty($custcode)){
             return [];
         }
@@ -520,7 +520,7 @@ export default {
         return [$data, $count];
     }
 
-    // 获取关联客户折扣商品信息
+// 获取关联客户折扣商品信息
     public function getPriceGoods($superlierId){
         if (empty($superlierId)) {
             return [];
@@ -572,11 +572,11 @@ export default {
         return [$data, $count];
     }
     
-'''
+```
 
 > 2. BBC 数据库自增类和编码类
 
-'''
+```
 
 /**
      * 获取数据表字段最大ID
@@ -686,11 +686,11 @@ export default {
         $data['FSERIALVALUE'] = $sheetRule['FPROJECTTYPE'] == 3 && $sheetRule['FSERIALTYPE'] == 2 ? date('Y-m-d') : '';
         return $this->db->update('T_ESS_CODERULEENTRY', $data, " and FENTRYID = {$sheetRule['FENTRYID']}");
     }
-'''
+```
 
 > 3. 四步逻辑
 
-'''
+```
     // 订单处理
     public function consignmenOrder($orgcode, $data){
         if(empty($orgcode)){
@@ -927,4 +927,4 @@ export default {
         return true;
     }
     
-'''
+```
