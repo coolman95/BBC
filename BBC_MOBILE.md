@@ -500,7 +500,7 @@ export default {
 
 > 1. 需要三个数据列表
 
-'''
+'''php
   public function getSupplierList($custcode, $page=1, $size=10){
         if(empty($custcode)){
             return [];
