@@ -474,6 +474,8 @@ export default {
         margin-top: 100px;
     }
 </style>
+
+
 '''
 
 > 底层 pdo 连接实现事务操作（原方法不支持事务）
@@ -491,10 +493,13 @@ export default {
     public function commit(){
         $this->pdo->commit();
     }
+    
 '''
 
 ### server层数据库操作，数据库字段维护
+
 > 1. 需要三个数据列表
+
 '''
   public function getSupplierList($custcode, $page=1, $size=10){
         if(empty($custcode)){
@@ -566,10 +571,13 @@ export default {
 
         return [$data, $count];
     }
+    
 '''
 
 > 2. BBC 数据库自增类和编码类
+
 '''
+
 /**
      * 获取数据表字段最大ID
      * @param $tablename
@@ -681,6 +689,7 @@ export default {
 '''
 
 > 3. 四步逻辑
+
 '''
     // 订单处理
     public function consignmenOrder($orgcode, $data){
@@ -917,4 +926,5 @@ export default {
         }
         return true;
     }
+    
 '''
