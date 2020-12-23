@@ -704,10 +704,10 @@ export default {
         }
 
         try{
-//            $fid = $this->consignmenSaveOrder($custid, $data);
-//            $this->consignmenSubmitOrder($fid);
-//            $this->consignmenVerifyOrder($fid);
-//            $this->consignmenDeliveryOrder($custid, $fid, $data);
+            $fid = $this->consignmenSaveOrder($custid, $data);
+            $this->consignmenSubmitOrder($fid);
+            $this->consignmenVerifyOrder($fid);
+            $this->consignmenDeliveryOrder($custid, $fid, $data);
         }catch (Exception $e) {
             return [false, $e->getMessage()];
         }
